@@ -5,6 +5,7 @@ pub enum CommandType {
     Update,
 }
 
+#[derive(Debug)]
 pub struct ServerCommands {
     commandType: CommandType,
 }
