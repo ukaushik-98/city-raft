@@ -2,8 +2,8 @@ use crate::commands::ServerCommands;
 
 #[derive(Debug)]
 pub struct PersistentServerState {
-    current_term: u32,
-    voted_for: u32,
+    current_term: usize,
+    voted_for: usize,
     log: Vec<ServerCommands>,
 }
 
@@ -19,8 +19,8 @@ impl PersistentServerState {
 
 #[derive(Debug)]
 pub struct VolatileServerState {
-    commit_index: u32,
-    last_applied: u32,
+    commit_index: usize,
+    last_applied: usize,
 }
 
 impl VolatileServerState {
@@ -34,8 +34,8 @@ impl VolatileServerState {
 
 #[derive(Debug)]
 pub struct LeaderServerState {
-    next_index: u32,
-    match_index: u32,
+    next_index: usize,
+    match_index: usize,
 }
 
 impl LeaderServerState {
