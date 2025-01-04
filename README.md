@@ -1,5 +1,5 @@
-# Toy Raft
-Toy imlementation of Raft in Rust.
+# City Raft
+Imlpementation of Raft in Rust for learning.
 
 ## Purpose
 A step-by-step implementation  of:
