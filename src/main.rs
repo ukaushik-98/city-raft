@@ -38,3 +38,18 @@ async fn main() {
 
     execute_command();
 }
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn test_start_up() {
+        let n = 5;
+        let servers = start_up(n);
+        assert_eq!(servers.len(), 5);
+        servers
+            .iter()
+            .for_each(|s| assert!(matches!(s, ServerType::Follower { .. })));
+    }
+}
