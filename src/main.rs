@@ -1,9 +1,9 @@
-use commands::execute_command;
 use election::elect;
+use rpc::execute_command;
 use server::{FollowerServer, ServerType};
 
-pub mod commands;
 pub mod election;
+pub mod rpc;
 pub mod server;
 
 fn start_up(n: usize) -> Vec<ServerType> {
@@ -26,10 +26,11 @@ async fn main() {
 
     match curr_leader {
         ServerType::Follower(follower_server) => {
-            let new_leader = follower_server.into_leader();
+            // temp to get a leader. fleshing out election logic next.
+            let new_leader = follower_server.into_candidate().into_leader();
             leader_servers.push(ServerType::Leader(new_leader));
         }
-        _ => panic!("There should be no leaders currently"),
+        _ => panic!("There should be no leaders or candidates currently"),
     }
 
     println!("follower servers; {:?}", follower_servers);

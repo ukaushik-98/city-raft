@@ -21,9 +21,20 @@ impl FollowerServer {
         println!("Voting...")
     }
 
+    pub fn into_candidate(self) -> CandidateServer {
+        CandidateServer { server_state: self }
+    }
+}
+
+#[derive(Debug)]
+pub struct CandidateServer {
+    server_state: FollowerServer,
+}
+
+impl CandidateServer {
     pub fn into_leader(self) -> LeaderServer {
         LeaderServer {
-            server_state: self,
+            server_state: self.server_state,
             leader_server_state: LeaderServerState::new(),
         }
     }
@@ -43,8 +54,13 @@ impl LeaderServer {
     }
 }
 
+///At any given time each server is in one of three states:
+/// - leader
+/// - follower
+/// - candidate
 #[derive(Debug)]
 pub enum ServerType {
     Follower(FollowerServer),
+    Candidate(CandidateServer),
     Leader(LeaderServer),
 }

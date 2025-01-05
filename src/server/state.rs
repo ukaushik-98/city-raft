@@ -1,4 +1,4 @@
-use crate::commands::ServerCommands;
+use crate::rpc::ServerCommands;
 
 #[derive(Debug)]
 pub struct PersistentServerState {

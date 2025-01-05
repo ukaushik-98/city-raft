@@ -18,7 +18,7 @@ A step-by-step implementation  of:
 
 ## Sources
 - Carl Lerche's Mini Raft: https://github.com/carllerche/mini-raft?tab=readme-ov-file
-- Eril Grinaker's ToyDB: https://github.com/erikgrinaker/toydb/blob/master/docs/references.md#raft
+- Erik Grinaker's ToyDB: https://github.com/erikgrinaker/toydb/blob/master/docs/references.md#raft
 - Raft research paper: https://raft.github.io/raft.pdf
 - Jon Gjengset's guides:
   - https://thesquareplanet.com/blog/instructors-guide-to-raft/
