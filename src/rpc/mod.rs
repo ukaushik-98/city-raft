@@ -13,9 +13,9 @@ pub enum RPC {
 #[derive(Debug)]
 struct HeartBeatRPC {
     term: usize,
-    candidateId: usize,
-    lastLogIndex: usize,
-    lastLogTerm: usize,
+    candidate_id: usize,
+    last_log_index: usize,
+    last_log_term: usize,
 }
 
 #[derive(Debug)]
@@ -27,24 +27,24 @@ struct HeartBeatRPCResponse {
 #[derive(Debug)]
 struct RequestVoteRPC {
     term: usize,
-    candidateId: usize,
-    lastLogIndex: usize,
-    lastLogTerm: usize,
+    candidate_id: usize,
+    last_log_index: usize,
+    last_log_term: usize,
 }
 
 #[derive(Debug)]
 struct RequestVoteRPCResponse {
     term: usize,
-    voteGranted: bool,
+    vote_granted: bool,
 }
 
 #[derive(Debug)]
 pub struct AppendRPC {
     term: usize,
-    leaderId: usize,
-    prevLogIndex: usize,
+    leader_id: usize,
+    prev_log_index: usize,
     entries: Vec<LogEntries>,
-    leaderCommit: usize,
+    leader_commit: usize,
 }
 
 #[derive(Debug)]
