@@ -1,6 +1,6 @@
 use super::{
     state::{PersistentServerState, VolatileServerState},
-    LeaderServerState,
+    VolatileLeaderServerState,
 };
 
 #[derive(Debug)]
@@ -35,7 +35,7 @@ impl CandidateServer {
     pub fn into_leader(self) -> LeaderServer {
         LeaderServer {
             server_state: self.server_state,
-            leader_server_state: LeaderServerState::new(),
+            leader_server_state: VolatileLeaderServerState::new(),
         }
     }
 }
@@ -45,7 +45,7 @@ impl CandidateServer {
 #[derive(Debug)]
 pub struct LeaderServer {
     server_state: FollowerServer,
-    leader_server_state: LeaderServerState,
+    leader_server_state: VolatileLeaderServerState,
 }
 
 impl LeaderServer {

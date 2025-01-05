@@ -2,4 +2,4 @@ mod node;
 mod state;
 
 pub use node::{FollowerServer, LeaderServer, ServerType};
-pub use state::{LeaderServerState, PersistentServerState, VolatileServerState};
+pub use state::{PersistentServerState, VolatileLeaderServerState, VolatileServerState};
