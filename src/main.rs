@@ -1,10 +1,8 @@
-use election::elect;
-use rpc::execute_command;
-use server::{FollowerServer, ServerType};
-
-pub mod election;
-pub mod rpc;
-pub mod server;
+use city_raft::{
+    election::elect,
+    rpc::execute_command,
+    server::{FollowerServer, ServerType},
+};
 
 fn start_up(n: usize) -> Vec<ServerType> {
     println!("Booting up instances...");

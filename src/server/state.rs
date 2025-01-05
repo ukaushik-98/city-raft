@@ -1,10 +1,10 @@
-use crate::rpc::ServerCommands;
+use crate::rpc::RPC;
 
 #[derive(Debug)]
 pub struct PersistentServerState {
     current_term: usize,
     voted_for: usize,
-    log: Vec<ServerCommands>,
+    log: Vec<RPC>,
 }
 
 impl PersistentServerState {
