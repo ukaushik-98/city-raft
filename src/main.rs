@@ -7,10 +7,9 @@ use city_raft::{
 fn start_up(n: usize) -> Vec<ServerType> {
     println!("Booting up instances...");
     let mut servers: Vec<ServerType> = Vec::new();
-    (0..n).into_iter().fold(&mut servers, |acc, _| {
-        acc.push(ServerType::Follower(FollowerServer::new()));
-        acc
-    });
+    for _ in 0..n {
+        servers.push(ServerType::Follower(FollowerServer::new()));
+    }
     servers
 }
 
